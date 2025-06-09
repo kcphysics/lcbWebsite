@@ -1,0 +1,39 @@
+{{template "header.html" .}}
+{{template "navbar.html" .}}
+
+    <!-- Main Content -->
+    <div class="container instrument-page-container">
+        <section class="instrument-hero">
+            <div class="instrument-image-wrapper">
+                <img src="{{.Instrument.ImagePath}}" class="instrument-image" alt="{{.Instrument.Name}}">
+            </div>
+            <div class="instrument-info">
+                <h1 class="instrument-title">{{.Instrument.Name}} Section</h1>
+                <p class="instrument-description">{{.Instrument.Description}}</p>
+            </div>
+        </section>
+
+        <section class="instrument-members mt-5">
+            <h2 class="members-title">Members</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Member Name</th>
+                            <th scope="col">Day Job</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range .Instrument.Members}}
+                        <tr>
+                            <td>{{.Name}}</td>
+                            <td>{{.DayJob}}</td>
+                        </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+{{template "footer.html" .}}

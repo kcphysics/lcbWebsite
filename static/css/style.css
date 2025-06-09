@@ -1,0 +1,175 @@
+/* Custom CSS goes here */
+:root {
+    /* Color variables will be generated here */
+--color-1: rgb(0, 0, 0);
+--color-2: rgb(26, 65, 140);
+--color-3: rgb(29, 45, 97);
+--color-4: rgb(255, 255, 255);
+--color-5: rgb(12, 122, 183);
+    /* End Color variables */
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: var(--color-2) !important;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: var(--color-4) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--color-5) !important;
+}
+
+footer {
+    background-color: var(--color-2) !important;
+    color: var(--color-4) !important;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+    color: var(--color-4); /* White text on carousel */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Sticky Footer */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container.mt-5 { /* This is the main content container */
+    flex: 1;
+}
+
+/* Calendar Centering */
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add some top margin */
+}
+
+.calendar-container iframe {
+    max-width: 100%; /* Ensure it's responsive */
+    height: 600px; /* Fixed height for the iframe */
+}
+
+/* Map Centering */
+.map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add some top margin */
+}
+
+.map-container iframe {
+    max-width: 100%; /* Ensure it's responsive */
+}
+
+/* Custom primary text color */
+.text-primary {
+    color: var(--color-2) !important; /* Using the dark blue from generated colors */
+}
+
+/* Navbar toggler icon color for collapsed state */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3csvg%3e") !important;
+}
+
+/* Instrument Page Styling */
+.instrument-page-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.instrument-hero {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    align-items: center;
+    gap: 30px; /* Space between image and info */
+    margin-bottom: 50px;
+    text-align: center; /* Center text on small screens */
+}
+
+.instrument-image-wrapper {
+    width: 100%;
+    max-width: 400px; /* Limit image size */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.instrument-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.instrument-image:hover {
+    transform: scale(1.05);
+}
+
+.instrument-info {
+    flex: 1;
+}
+
+.instrument-title {
+    font-size: 2.5rem;
+    color: var(--color-2); /* Using a primary color */
+    margin-bottom: 15px;
+}
+
+.instrument-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.instrument-members {
+    margin-top: 50px;
+}
+
+.members-title {
+    font-size: 2rem;
+    color: var(--color-2);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .instrument-hero {
+        flex-direction: row; /* Side-by-side on medium and larger screens */
+        text-align: left; /* Align text left on larger screens */
+    }
+
+    .instrument-image-wrapper {
+        flex-shrink: 0; /* Prevent image from shrinking */
+        margin-right: 30px; /* Space between image and text */
+    }
+
+    .instrument-info {
+        padding-left: 20px; /* Add some padding if needed */
+    }
+}
+
+@media (min-width: 992px) {
+    .instrument-title {
+        font-size: 3rem;
+    }
+}
