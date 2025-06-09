@@ -58,10 +58,12 @@ func GeneratePage(outputDir, templateName string, data interface{}, instrumentSe
 		MapURL             string            // Only for about page
 		InstrumentSections map[string]models.Instrument
 		GoogleAnalyticsID  string
+		GMapsAPIKey        string // Added for rehearsals page
 	}{
 		Title:              "Lexington Community Band",
 		InstrumentSections: instrumentSections,
 		GoogleAnalyticsID:  googleAnalyticsID,
+		GMapsAPIKey:        os.Getenv("LCB_GMAP_KEY"), // Populate from env var
 	}
 
 	// Populate specific fields based on templateName
