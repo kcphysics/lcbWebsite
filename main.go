@@ -21,6 +21,10 @@ const (
 	staticAssetsDir = "static"
 )
 
+type RehearsalsPageData struct {
+	GMapsAPIKey string
+}
+
 func main() {
 	buildCmd := flag.NewFlagSet("build", flag.ExitOnError)
 
@@ -85,7 +89,15 @@ func runBuild() {
 	pagegen.GeneratePage(outputDir, "index.html", nil, instrumentSections)
 	pagegen.GeneratePage(outputDir, "about.html", nil, instrumentSections)
 	pagegen.GeneratePage(outputDir, "membership.html", nil, instrumentSections)
-	pagegen.GeneratePage(outputDir, "rehearsals.html", nil, instrumentSections)
+	gMapsAPIKey := os.Getenv("LCB_GMAP_KEY")
+	if gMapsAPIKey == "" {
+		log.Println("Warning: LCB_GMAP_KEY environment variable not set. Google Maps embed may not work.")
+	}
+
+	rehearsalsData := RehearsalsPageData{
+		GMapsAPIKey: gMapsAPIKey,
+	}
+	pagegen.GeneratePage(outputDir, "rehearsals.html", rehearsalsData, instrumentSections)
 	pagegen.GeneratePage(outputDir, "calendar.html", nil, instrumentSections)
 	pagegen.GeneratePage(outputDir, "error.html", nil, instrumentSections)
 
